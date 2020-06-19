@@ -1,0 +1,45 @@
+test('parseInt', () => {
+    expect(parseInt(1)).toBe(1);
+    expect(parseInt(undefined)).toBeNaN();
+    expect(parseInt(null)).toBeNaN();
+    expect(parseInt('a')).toBeNaN();
+    expect(parseInt('1a')).toBe(1);
+    expect(parseInt('1a2')).toBe(1);
+    expect(parseInt('a2')).toBeNaN()
+    expect(parseInt('.2')).toBeNaN();
+    expect(parseInt('0.2')).toBe(0);
+    expect(parseInt('1.0.2')).toBe(1);
+    expect(parseInt([])).toBeNaN();
+    expect(parseInt([5])).toBe(5);
+    expect(parseInt([5,3])).toBe(5);
+    expect(parseInt(['a',2])).toBeNaN();
+    expect(parseInt(['1a',2])).toBe(1);
+    expect(parseInt({})).toBeNaN();
+    expect(parseInt({a:1})).toBeNaN();
+    expect(parseInt({'1':1})).toBeNaN();
+    expect(parseInt(Promise.resolve(1))).toBeNaN();
+    expect(parseInt(Promise.reject(1))).toBeNaN();
+})
+
+test('Number', () => {
+    expect(Number(1)).toBe(1);
+    expect(Number(undefined)).toBeNaN();
+    expect(Number(null)).toBe(0);
+    expect(Number('a')).toBeNaN();
+    expect(Number('1a')).toBeNaN()
+    expect(Number('1a2')).toBeNaN()
+    expect(Number('a2')).toBeNaN()
+    expect(Number('.2')).toBe(0.2);
+    expect(Number('0.2')).toBe(0.2);
+    expect(Number('1.0.2')).toBeNaN()
+    expect(Number([])).toBe(0);
+    expect(Number([5])).toBe(5);
+    expect(Number([5,3])).toBeNaN();
+    expect(Number(['a',2])).toBeNaN();
+    expect(Number(['1a',2])).toBeNaN();
+    expect(Number({})).toBeNaN();
+    expect(Number({a:1})).toBeNaN();
+    expect(Number({'1':1})).toBeNaN();
+    expect(Number(Promise.resolve(1))).toBeNaN();
+    expect(Number(Promise.reject(1))).toBeNaN();
+})
